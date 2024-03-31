@@ -1,5 +1,5 @@
 import os
-import json
+import pickle
 import numpy as np
 import pretty_midi
 
@@ -42,7 +42,7 @@ class Directories:
         self.target_music_path = os.path.join(self.target_dir, f'{self.music_index:03d}')
         os.makedirs(self.target_music_path, exist_ok=True)
         self.target_music_file = os.path.join(self.target_music_path, f'{self.music_index:03d}.mid')
-        self.target_discrete_file = os.path.join(self.target_music_path, f'discrete.txt')
+        self.target_discrete_file = os.path.join(self.target_music_path, f'discrete.pkl')
 
     def read_beat(self):
         beats = []
@@ -59,5 +59,5 @@ class Directories:
         midi.write(self.target_music_file)
 
     def write_discrete(self, obj):
-        with open(self.target_discrete_file, 'w') as f:
-            json.dump(obj, f)
+        with open(self.target_discrete_file, 'wb') as f:
+            pickle.dump(obj, f)
