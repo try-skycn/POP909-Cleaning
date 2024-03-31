@@ -8,5 +8,5 @@ setup(
     license='MIT',
     author='Tianyao Chen',
     author_email='',
-    description='Clearning POP909 dataset'
+    description='Cleaning POP909 dataset'
 )
